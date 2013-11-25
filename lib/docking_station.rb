@@ -11,6 +11,8 @@ class DockingStation
   end
 
   def dock(bike)
+    #if caapcity is raised, raise an exception
+    raise "Stations is full" if full?
     @bikes << bike
   end
 
