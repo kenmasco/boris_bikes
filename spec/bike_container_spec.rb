@@ -1,4 +1,5 @@
 require_relative "../lib/bike_container"
+require_relative "../lib/bike.rb"
 
 class ContainerHolder; include BikeContainer; end
 
@@ -21,6 +22,15 @@ class ContainerHolder; include BikeContainer; end
       holder.dock(bike)
       #now we expect the station to have 1 bike
       expect(holder.bike_count).to eq(1)
+    end
+
+    it "should only accepts bikes" do
+
+    end
+
+    it "should complain if release is not given a valid bike" do
+      fill_holder holder
+      expect { holder.release('not_a_bike') }.to raise_error
     end
 
     it "should not release a bike if it's empty" do

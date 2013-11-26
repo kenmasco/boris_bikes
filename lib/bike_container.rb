@@ -25,6 +25,9 @@ module BikeContainer
 
   def release(bike)
     raise "Holder is empty" if empty?
+    unless bike.is_a? Bike
+      raise "Not a valid bike"
+    end
     @bikes.delete(bike)
   end
 
@@ -39,4 +42,6 @@ module BikeContainer
   def available_bikes
     bikes.reject {|bike| bike.broken? }
   end
+
+
 end

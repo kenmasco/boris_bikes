@@ -12,4 +12,8 @@ class DockingStation
     self.capacity = options.fetch(:capacity, capacity)
   end
 
+  def do_stuff(van)
+    van.do
+  end
+
 end
