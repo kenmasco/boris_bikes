@@ -6,9 +6,9 @@ class DockingStation
 
   def initialize(options = {})
     # self.capacity is calling the capicity=() method
-    # (not the equals sign) defined in BikeContainer
+    # (note the equals sign) defined in BikeContainer
     # capacity (the second argument to fetch()) is calling 
-    # the capacity() methid in BikeContainer
+    # the capacity() method in BikeContainer
     self.capacity = options.fetch(:capacity, capacity)
   end
  

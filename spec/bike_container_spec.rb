@@ -1,7 +1,7 @@
 require_relative "../lib/bike_container"
-require_relative "../lib/bike.rb"
-require_relative "../lib/van.rb"
-require_relative "../lib/docking_station.rb"
+require_relative "../lib/bike"
+require_relative "../lib/van"
+require_relative "../lib/docking_station"
 
 class ContainerHolder; include BikeContainer; end
 
@@ -24,10 +24,6 @@ class ContainerHolder; include BikeContainer; end
       holder.dock(bike)
       #now we expect the station to have 1 bike
       expect(holder.bike_count).to eq(1)
-    end
-
-    it "should only accepts bikes" do
-
     end
 
     it "should complain if release is not given a valid bike" do
@@ -65,4 +61,5 @@ class ContainerHolder; include BikeContainer; end
       holder.dock(broken_bike)
       expect(holder.available_bikes).to eq([working_bike])
     end
-  end
+    
+end
