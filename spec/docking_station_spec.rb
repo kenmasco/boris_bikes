@@ -1,6 +1,4 @@
-require_relative "../lib/docking_station"
-require_relative "../lib/van"
-require_relative "../lib/bike"
+Dir["/Users/kennerdeigh/DevProjects/MA-Projects/boris_bikes/lib/*"].each {|file| require file }
 
 describe DockingStation do
 
@@ -22,4 +20,7 @@ describe DockingStation do
     expect(station.broken_bikes.length).to eq(0)
     expect(van.broken_bikes.length).to eq(1)
   end
+
+  
+
 end

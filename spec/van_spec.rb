@@ -1,6 +1,4 @@
-require_relative "../lib/van"
-require_relative "../lib/docking_station"
-require_relative "../lib/bike"
+Dir["/Users/kennerdeigh/DevProjects/MA-Projects/boris_bikes/lib/*"].each {|file| require file }
 
 describe Van do
 
@@ -8,6 +6,10 @@ describe Van do
   let(:van) { Van.new(:capacity => 20) }
   let(:station) { DockingStation.new(:capacity => 123) }
   let(:garage) { Garage.new }
+
+it "should allow setting default capacity on initialising" do
+    expect(van.capacity).to eq(20)
+  end
 
   it "should be able to accept broken bikes" do
     broken_bike = Bike.new
@@ -37,7 +39,8 @@ describe Van do
     expect(van.broken_bikes.length).to eq(1)
     van.unload_to_garage(broken_bike, garage)
     expect(van.broken_bikes.length).to eq(0)
-    expect(garage.broken_bikes.length).to eq(1)  
+    expect(garage.broken_bikes.length).to eq(0)  
+    expect(garage.bikes.length).to eq(1)  
   end
 
 end

@@ -1,7 +1,9 @@
-require_relative "../lib/bike_container"
-require_relative "../lib/bike"
-require_relative "../lib/van"
-require_relative "../lib/docking_station"
+Dir["/Users/kennerdeigh/DevProjects/MA-Projects/boris_bikes/lib/*"].each {|file| require file }
+
+# require_relative "../lib/bike_container"
+# require_relative "../lib/bike"
+# require_relative "../lib/van"
+# require_relative "../lib/docking_station"
 
 class ContainerHolder; include BikeContainer; end
 
@@ -38,9 +40,9 @@ class ContainerHolder; include BikeContainer; end
 
     it "should release a bike" do
        holder.dock(bike)
-       expect(holder.bike_count).to eq (1)
+       expect(holder.bike_count).to eq(1)
        holder.release(bike)
-       expect(holder.bike_count).to eq (0)
+       expect(holder.bike_count).to eq(0)
     end
 
     it "should know when it's full" do
@@ -61,5 +63,5 @@ class ContainerHolder; include BikeContainer; end
       holder.dock(broken_bike)
       expect(holder.available_bikes).to eq([working_bike])
     end
-    
+  
 end
