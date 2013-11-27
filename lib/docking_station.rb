@@ -11,9 +11,10 @@ class DockingStation
     # the capacity() methid in BikeContainer
     self.capacity = options.fetch(:capacity, capacity)
   end
-
-  def do_stuff(van)
-    van.do
+ 
+  def load_to_van(broken_bike, van)
+    self.release(broken_bike)
+    van.dock(broken_bike)
   end
 
 end

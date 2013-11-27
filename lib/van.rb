@@ -1,14 +1,11 @@
 require_relative "../lib/bike_container"
+require_relative "../lib/docking_station"
 
 class Van
   include BikeContainer
 
-  def broken_bikes
-    bikes.select {|bike| bike.broken? }
+  def unload_to_station(working_bike, station)
+    self.release(working_bike)
+    station.dock(working_bike)
   end
-
-  def interact(station)
-    station.inter(sdfsdf)
-  end
-
 end

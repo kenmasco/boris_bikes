@@ -1,5 +1,7 @@
 require_relative "../lib/bike_container"
 require_relative "../lib/bike.rb"
+require_relative "../lib/van.rb"
+require_relative "../lib/docking_station.rb"
 
 class ContainerHolder; include BikeContainer; end
 
