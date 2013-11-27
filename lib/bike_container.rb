@@ -49,5 +49,9 @@ module BikeContainer
     def broken_bikes
       bikes.select {|bike| bike.broken? }
     end
+
+    def unload_to(container, bike)
+      container.dock(release(bike))
+    end
 end
 

@@ -17,6 +17,42 @@ describe Garage do
     garage.dock(broken_bike)
     expect(garage.release(broken_bike)).to_not be_broken
   end
+
+  context 'unloading' do
+    before do
+      bike.break
+      garage.dock(bike)
+    end
+
+    it 'unloads a bike to a van' do
+      van = double :van
+    
+      expect(van).to receive(:dock).with(bike)
+
+      garage.unload_to(van, bike)
+    end
+
+    it 'has one less bike after unloading to a van' do
+      van = double :van, dock: nil
+
+      garage.unload_to(van, bike)
+
+      expect(garage.bikes.length).to eq 0
+    end
+  end
 end
 
 
+__END__
+
+it "should move broken bikes from the garage to the station" do
+    bike.break
+    garage.dock(bike)
+    expect(garage.bikes.length).to eq(1)
+    garage.unload_to(van, bike)
+    expect(garage.bikes.length).to eq(0)
+    expect(van.bikes.length).to eq(1)
+    van.unload_to(station, bike)
+    expect(van.bikes.length).to eq(0)
+    expect(station.bikes.length).to eq(1)
+  end
