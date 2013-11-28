@@ -29,13 +29,13 @@ describe Garage do
     
       expect(van).to receive(:dock).with(bike)
 
-      garage.unload_to(van, bike)
+      garage.load_to(van, bike)
     end
 
     it 'has one less bike after unloading to a van' do
       van = double :van, dock: nil
 
-      garage.unload_to(van, bike)
+      garage.pass_working_bikes_to(van)
 
       expect(garage.bikes.length).to eq 0
     end

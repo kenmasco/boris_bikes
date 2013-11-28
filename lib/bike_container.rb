@@ -50,8 +50,16 @@ module BikeContainer
       bikes.select {|bike| bike.broken? }
     end
 
-    def unload_to(container, bike)
+    def load_to(container, bike)
       container.dock(release(bike))
+    end
+
+    def pass_working_bikes_to(container)
+      available_bikes.each_entry do |bike| 
+      container.dock(bike)
+      release(bike)
+    end
+  
     end
 end
 

@@ -63,5 +63,4 @@ class ContainerHolder; include BikeContainer; end
       holder.dock(broken_bike)
       expect(holder.available_bikes).to eq([working_bike])
     end
-  
 end
